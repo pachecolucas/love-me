@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin:0;
+        }
+
+        body {
+            background: rgb(255, 238, 241);
+        }
+
+        section {
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0px 5px 20px rgb(180, 180, 180);
+            text-align: center;
+            padding: 30px 0 60px;
+            margin: 30px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: rgb(226, 62, 89);
+            border: none;
+            padding: 4px 20px;
+            color: white;
+            border-radius: 9999px;
+            transition: 0.3s all;
+            position: absolute;
+        }
+
+        button:hover {
+            background: rgb(41, 3, 9);
+            cursor: pointer;
+        }
+
+        #sim {
+            right: 53%;
+        }
+
+        #nao {
+            left: 53%;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        #mensagem {
+            margin-top: 100px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h2>Você me ama?</h2>
+        <div>
+            <button id="sim" onclick="mostrarMensagem()">Sim</button>
+            <button id="nao" onmouseover="fugir()">Não</button>
+        </div>
+        <div id="mensagem">
+            <h3>Acho bom!</h3>
+            <img src="lord.png" alt="">
+        </div>
+    </section>
+    <script>
+        const btn = document.getElementById("nao")
+        const mensagem = document.getElementById("mensagem")
+        function fugir() {
+            
+            const numero1 = Math.floor(Math.random() * 100)
+            const numero2 = Math.floor(Math.random() * 100)
+
+            console.log(numero1, numero2)
+
+            btn.style.top = 0
+            btn.style.left = 0
+            btn.style.marginTop = numero1 + "vh"
+            btn.style.marginLeft = `${numero2}vw`
+        }
+
+        function mostrarMensagem() {
+            mensagem.style.display = "block"
+        }
+    </script>
+</body>
+</html>
